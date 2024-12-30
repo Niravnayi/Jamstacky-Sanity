@@ -21,7 +21,7 @@ export default defineType({
     }),
 
     {
-      name: 'pagebuilder',
+      name: 'sections',
       type: 'array',
       of: [{type: 'reference', to: {type: 'section'}}],
     },

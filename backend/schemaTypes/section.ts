@@ -10,9 +10,9 @@ export default {
         description: 'this text is used only cms',
       },
       {
-        name: 'content',
+        name: 'sections',
         type: 'array',
-        of: [{type: 'heroSection'},],
+        of: [{type: 'heroSection'},{type: 'caseStudy'}],
       },
     ],
   }

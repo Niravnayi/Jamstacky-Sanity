@@ -16,11 +16,15 @@ export default defineType({
       type: 'string',
     }),
     defineField({
-      name: 'buttonText',
+      name: 'buttonText1',
       title: 'Button Text',
       type: 'string',
     }),
-
+    defineField({
+      name: 'buttonText2',
+      title: 'Button Text',
+      type: 'string',
+    }),
     defineField({
       name: 'link',
       title: 'Link',

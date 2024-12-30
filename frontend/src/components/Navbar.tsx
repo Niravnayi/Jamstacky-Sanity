@@ -12,7 +12,7 @@ export default async function Navbar() {
   return (
     <div>
       <header>
-        <nav className="flex justify-between px-[10%] items-center mt-5">
+        <nav className="flex justify-between px-[10%] items-center mt-5 py-5 sicky top-0 z-50">
           <div>
             <Image
               src={urlFor(headerData[0]?.image.asset).url() || ""}
