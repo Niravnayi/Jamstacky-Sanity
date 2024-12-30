@@ -42,7 +42,10 @@ export default defineType({
         }),
       ],
     }),
+    defineField({
+      name: 'Button',
+      title: 'Button',
+      type: 'string',
+    }),
   ],
 })
-
-
