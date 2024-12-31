@@ -12,7 +12,7 @@ export default {
       {
         name: 'sections',
         type: 'array',
-        of: [{type: 'heroSection'},{type: 'caseStudy'}],
+        of: [{type: 'heroSection'},{type: 'caseStudy'},{type:"techSection"}],
       },
     ],
   }

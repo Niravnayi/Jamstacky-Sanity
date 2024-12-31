@@ -11,7 +11,7 @@ export const HEADER_QUERY = defineQuery(`*[_type == "header"]{
         Button
     }`);
 
-export const SECTION_QUERY = defineQuery(`*[_type == "section"]{
-        sections[]{_type, ...}
+export const SECTION_QUERY = defineQuery(`*[_type == "page"][0]{
+        sections[]->{ ...}
         
     }`);

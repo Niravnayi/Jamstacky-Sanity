@@ -1,26 +1,14 @@
-import HeroSection from "@/components/HeroSection";
-import { SECTION_QUERY } from "@/sanity/lib/queries";
+import ItemMap from "@/components/ItemsMap";
 import client from "@/sanity/lib/client";
-import CaseStudy from "@/components/CaseStudy";
+import { SECTION_QUERY } from "@/sanity/lib/queries";
 
 export default async function Home() {
-  const data = await client.fetch(SECTION_QUERY);
-
-  console.log(data);
-  
-
- 
-
+  const Data = await client.fetch(SECTION_QUERY);
+  console.log(Data);
   return (
-    <div>
-      {data.map((section: any, index: number) => {
-        if (section.sections?.[0]?._type === "heroSection") {
-          return <HeroSection key={index} data={section.sections[0]} />;
-        }
-        else if (section.sections?.[0]?._type === "caseStudy") {
-          return <CaseStudy key={index} data={section.sections[0]} />;
-        }
-        return null; 
+    <div className="w-full">
+      {Data.sections.map((section: any, index: number) => {
+        return <ItemMap key={index} data={section}></ItemMap>;
       })}
     </div>
   );

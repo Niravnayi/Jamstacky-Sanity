@@ -8,7 +8,7 @@ export default async function CaseStudy(data: any) {
 
   return (
     <div>
-        <h2>{data.data.title}</h2>
+        <h2>{data.data.title}</h2>  
       <p>{data.data.description}</p>
       <Image
                 src={
