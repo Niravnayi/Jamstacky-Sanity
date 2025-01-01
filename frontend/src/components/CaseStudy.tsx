@@ -11,7 +11,7 @@ export default async function CaseStudy(data: any) {
     { name: "Experimental interaction to next paint", value: 75 },
   ];
 
-  console.log(data.data);
+  // console.log(data.data);
 
   return (
     <div className="w-full h-full  m-10 p-10">

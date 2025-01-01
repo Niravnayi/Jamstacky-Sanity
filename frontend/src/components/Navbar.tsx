@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export default async function Navbar() {
   const headerData = await client.fetch(HEADER_QUERY);
-  console.log(headerData);
+  // console.log(headerData);
 
   return (
     <div>
@@ -18,7 +18,7 @@ export default async function Navbar() {
               src={urlFor(headerData[0]?.image.asset).url() || ""}
               height="300"
               width="300"
-              className="h-12 w-52"
+              className="h-10 w-52"
               alt={headerData[0]?.label}
             />
           </div>
