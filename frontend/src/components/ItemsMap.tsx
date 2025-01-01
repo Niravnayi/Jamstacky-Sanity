@@ -4,6 +4,7 @@ import client from "@/sanity/lib/client";
 import CaseStudy from "@/components/CaseStudy";
 import TechSection from "./TechSection";
 import EdgeSection from "./EdgeSection";
+import Compare from "./Compare";
 
 interface SectionData {
   sections: Array<{
@@ -15,7 +16,7 @@ interface SectionData {
 export default async function ItemMap({ data }: { data: SectionData }) {
   const Data = await client.fetch(SECTION_QUERY);
 
-    console.log("Fetched sections:", Data?.sections);
+  console.log("Fetched sections:", Data?.sections);
 
   return (
     <div>
@@ -29,6 +30,8 @@ export default async function ItemMap({ data }: { data: SectionData }) {
             return <TechSection key={`${sectionIndex}`} data={sectionItem} />;
           case "edgeSection":
             return <EdgeSection key={`${sectionIndex}`} data={sectionItem} />;
+          case "compare":
+            return <Compare key={`${sectionIndex}`} data={sectionItem} />;
           default:
             console.warn(`Unknown section type: ${sectionItem._type}`);
             return null;
