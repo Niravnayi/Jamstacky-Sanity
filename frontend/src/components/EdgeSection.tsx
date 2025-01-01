@@ -26,7 +26,7 @@ export default async function EdgeSection(data: any) {
               className="w-full custom-spin"
             />
           </div>
-          <div className="absolute top-72 ">
+          <div className="absolute top-64 ">
             <Image
               src={urlFor(data.data.image2?.asset).url() || ""}
               alt={data.data.heading}
