@@ -9,7 +9,7 @@ import {
 import { customComponents } from "./SerializerComponent";
 
 export default function Compare(data: any) {
-  console.log(data.data);
+  // console.log(data.data);
 
   return (
     <div className="px-[10%] mt-10">

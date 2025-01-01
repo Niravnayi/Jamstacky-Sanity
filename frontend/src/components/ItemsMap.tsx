@@ -5,6 +5,7 @@ import CaseStudy from "@/components/CaseStudy";
 import TechSection from "./TechSection";
 import EdgeSection from "./EdgeSection";
 import Compare from "./Compare";
+import Carousel from "./corousel";
 
 interface SectionData {
   sections: Array<{
@@ -28,10 +29,12 @@ export default async function ItemMap({ data }: { data: SectionData }) {
             return <CaseStudy key={`${sectionIndex}`} data={sectionItem} />;
           case "techSection":
             return <TechSection key={`${sectionIndex}`} data={sectionItem} />;
-          case "edgeSection":
-            return <EdgeSection key={`${sectionIndex}`} data={sectionItem} />;
           case "compare":
             return <Compare key={`${sectionIndex}`} data={sectionItem} />;
+          case "edgeSection":
+            return <EdgeSection key={`${sectionIndex}`} data={sectionItem} />;
+          case "carousel":
+              return <Carousel key={`${sectionIndex}`} data={sectionItem} />;  
           default:
             console.warn(`Unknown section type: ${sectionItem._type}`);
             return null;

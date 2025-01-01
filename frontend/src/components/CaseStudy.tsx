@@ -14,7 +14,7 @@ export default async function CaseStudy(data: any) {
   // console.log(data.data);
 
   return (
-    <div className="w-full h-full  my-10 p-10">
+    <div className="w-full h-full  my-10 p-[10%]">
       <div className="flex flex-col ">
         <h2 className="text-sm font-semibold text-blue-700 ml-10">
           {data.data.title}

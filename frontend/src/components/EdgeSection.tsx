@@ -3,12 +3,14 @@ import Image from "next/image";
 import "../app/globals.css";
 
 export default async function EdgeSection(data: any) {
-  console.log("EdgeSection", data.data);
+  // console.log("EdgeSection", data.data);
 
   return (
-    <div className="w-full h-full  my-10 px-20">
+    <div className="w-full h-full  my-10 px-[10%]">
       <div className="mb-5 ">
-        <h2 className="text-lg text-blue-600 font-semibold">{data.data.heading}</h2>
+        <h2 className="text-lg text-blue-600 font-semibold">
+          {data.data.heading}
+        </h2>
 
         <p className="text-2xl font-medium ">{data.data.subheading}</p>
       </div>

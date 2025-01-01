@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default async function TechSection(data: any) {
   return (
-    <div className="bg-blue-50 py-12 px-6">
+    <div className="bg-blue-50 py-12 px-[10%]">
       {/* Section Title */}
       <div className="text-center mb-8">
         <h3 className="text-blue-600 font-semibold tracking-wide uppercase">

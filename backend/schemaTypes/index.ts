@@ -2,6 +2,7 @@ import blockContent from './blockContent'
 import header from './header'
 import page from './page'
 import section from './section'
+import carousel from './sections/carousel'
 import caseStudy from './sections/caseStudy'
 import compare from './sections/compare'
 import edgeSection from './sections/edgeSection'
@@ -18,4 +19,5 @@ export const schemaTypes = [
   techSection,
   edgeSection,
   compare,
+  carousel,
 ]
