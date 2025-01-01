@@ -13,11 +13,13 @@ export default async function TechSection(data: any) {
       </div>
 
       {/* Technology Grid */}
-      <div className="flex  gap-6 flex-wrap  justify-center items-center">
+      <div>
         {data.data.title.techs.map((tech: any) => (
-          <div key={tech.name} className=" p-4 rounded-lg text-center">
-            <h2 className="font-semibold text-lg m-5 text-blue-800">{tech.name}</h2>
-            <div className="mb-4 flex gap-5">
+          <div key={tech.name} className=" p-5 rounded-lg text-center">
+            <h2 className="font-semibold text-lg m-5 text-blue-800 mb-20">
+              {tech.name}
+            </h2>
+            <div className="mb-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-7 w-full ">
               {tech.image.map((img: any) => (
                 <Image
                   key={img._key}
@@ -25,7 +27,7 @@ export default async function TechSection(data: any) {
                   alt={tech.name}
                   width={100}
                   height={100}
-                  className=" border-2 border-dashed border-red-400 w-40"
+                  className=" border-2 border-dashed border-red-400 w-full h-32"
                 />
               ))}
             </div>
