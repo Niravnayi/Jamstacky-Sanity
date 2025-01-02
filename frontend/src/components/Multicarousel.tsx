@@ -1,8 +1,21 @@
 import { urlFor } from "@/sanity/lib/imageUrlBuilder";
 import Image from "next/image";
 import "../app/globals.css";
+import { SanityImageAssetDocument } from "next-sanity";
 
-export default function Multicarousel({ data }: any) {
+export interface MulticarouselItem {
+  image: {
+    asset: SanityImageAssetDocument;
+  };
+}
+
+export interface MulticarouselProps {
+  data: {
+    content: MulticarouselItem[];
+  };
+}
+
+export default function Multicarousel({ data }: MulticarouselProps) {
   // Duplicate images to create the infinite scroll effect
   const infiniteItems = [...data.content, ...data.content];
 
@@ -14,14 +27,14 @@ export default function Multicarousel({ data }: any) {
           width: `${infiniteItems.length * 300}px`,
         }}
       >
-        {infiniteItems.map((item: any, index: number) => (
+        {infiniteItems.map((item: MulticarouselItem, index: number) => (
           <div key={index} className="flex-shrink-0 w-[300px] ">
             <Image
               src={urlFor(item.image.asset).url() || ""}
               alt={`carousel-image-${index}`}
               width={300}
               height={200}
-              className=" oberflow-hidden rounded-lg"
+              className="overflow-hidden rounded-lg"
             />
           </div>
         ))}
@@ -29,3 +42,4 @@ export default function Multicarousel({ data }: any) {
     </div>
   );
 }
+

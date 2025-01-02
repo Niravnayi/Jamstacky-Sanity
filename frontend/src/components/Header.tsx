@@ -1,16 +1,22 @@
 "use client";
 
 import { urlFor } from "@/sanity/lib/imageUrlBuilder";
+import { SanityImageAssetDocument } from "next-sanity";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-interface HeaderProps {
+type NavigationItem = {
   label: string;
-  image: { asset: any };
-  navigationItems: { label: string; link: string }[];
+  link: string;
+};
+
+type HeaderProps = {
+  label: string;
+  image: { asset: SanityImageAssetDocument | null };
+  navigationItems: NavigationItem[];
   buttonLabel: string;
-}
+};
 
 export default function Header({
   label,
@@ -28,9 +34,9 @@ export default function Header({
     <div className="flex justify-between items-center gap-5 w-full">
       {/* Logo */}
       <Image
-        src={urlFor(image.asset).url() || ""}
-        height="300"
-        width="300"
+        src={image.asset ? urlFor(image.asset).url() : ""}
+        height={300}
+        width={300}
         className="h-10 w-52"
         alt={label}
       />
@@ -83,43 +89,44 @@ export default function Header({
       </div>
 
       {/* Mobile Menu */}
-      <div
-        className={`absolute md:hidden  right-0 top-0 w-4/5 h-screen bg-black text-white shadow-lg rounded-md transform transition-transform duration-300 ${
-          isMenuOpen ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
-        }`}
-      >
-        <ul className="flex flex-col items-start gap-6 p-5">
-          {/* Close Button (❌) */}
-          <li className="self-end">
-            <button
-              onClick={toggleMenu}
-              className="text-white text-3xl font-semibold"
-              aria-label="Close Menu"
-            >
-              ❌
-            </button>
-          </li>
-
-          {/* Navigation Links */}
-          {navigationItems.map((navItem) => (
-            <li key={navItem.label} className="w-full">
-              <Link
-                href={navItem.link}
-                className="hover:text-red-500 transition duration-300 px-3 py-2 text-lg font-semibold block w-full"
+      {isMenuOpen && (
+        <div
+          className="absolute right-0 top-0 w-4/5 h-screen bg-black text-white shadow-lg rounded-md transform transition-transform duration-300 translate-x-0 opacity-100"
+        >
+          <ul className="flex flex-col items-start gap-6 p-5">
+            {/* Close Button (❌) */}
+            <li className="self-end">
+              <button
+                onClick={toggleMenu}
+                className="text-white text-3xl font-semibold"
+                aria-label="Close Menu"
               >
-                {navItem.label}
-              </Link>
+                ❌
+              </button>
             </li>
-          ))}
 
-          {/* Button */}
-          <li>
-            <button className="text-white bg-gray-700 py-2 px-4 font-bold rounded-full hover:bg-red-600 transition duration-300 w-full">
-              {buttonLabel}
-            </button>
-          </li>
-        </ul>
-      </div>
+            {/* Navigation Links */}
+            {navigationItems.map((navItem) => (
+              <li key={navItem.label} className="w-full">
+                <Link
+                  href={navItem.link}
+                  className="hover:text-red-500 transition duration-300 px-3 py-2 text-lg font-semibold block w-full"
+                >
+                  {navItem.label}
+                </Link>
+              </li>
+            ))}
+
+            {/* Button */}
+            <li>
+              <button className="text-white bg-gray-700 py-2 px-4 font-bold rounded-full hover:bg-red-600 transition duration-300 w-full">
+                {buttonLabel}
+              </button>
+            </li>
+          </ul>
+        </div>
+      )}
     </div>
   );
 }
+

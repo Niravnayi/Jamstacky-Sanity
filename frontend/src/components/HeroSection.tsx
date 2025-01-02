@@ -1,43 +1,32 @@
 import { urlFor } from "@/sanity/lib/imageUrlBuilder";
 import Image from "next/image";
 import "../app/globals.css";
+import { HeroSectionData } from "@/sanity/lib/types/sectionsTypes/heroSection";
 
 interface HeroSectionProps {
-  data: {
-    image: any;
-    text: string;
-    heading?: string;
-    subheading?: string;
-    buttonText1?: string;
-    buttonText2?: string;
-    backgroundImage?: {
-      asset?: any;
-    };
-    badgeText?: string;
-  };
+  data: HeroSectionData;
 }
-
 export default function HeroSection({ data }: HeroSectionProps) {
   return (
     <div className="w-full bg-[#f4f3ec] px-4 sm:px-[10%] py-16 md:py-20">
       <div className="flex flex-col md:flex-row justify-center items-center relative">
         <div className="flex-1 flex flex-col justify-center items-start w-full md:w-fit">
           {/* Badge */}
-          {data?.badgeText && (
+          {data.badgeText && (
             <div className="bg-blue-100 text-blue-600 px-4 py-1 rounded-full text-sm font-medium inline-flex items-center mb-4">
               {data.badgeText}
             </div>
           )}
 
           {/* Heading */}
-          {data?.heading && (
+          {data.heading && (
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#110462] leading-snug">
               {data.heading}
             </h1>
           )}
 
           {/* Subheading */}
-          {data?.subheading && (
+          {data.subheading && (
             <p className="text-base sm:text-lg text-gray-600 mt-4 max-w-2xl">
               {data.subheading}
             </p>
@@ -45,12 +34,12 @@ export default function HeroSection({ data }: HeroSectionProps) {
 
           {/* Buttons */}
           <div className="flex space-x-4 mt-8">
-            {data?.buttonText1 && (
+            {data.buttonText1 && (
               <button className="bg-[#110462] text-white px-6 py-4 rounded-full shadow hover:bg-black duration-200">
                 {data.buttonText1}
               </button>
             )}
-            {data?.buttonText2 && (
+            {data.buttonText2 && (
               <button className="bg-red-600 text-white px-6 py-4 rounded-full shadow hover:bg-red-700 duration-200">
                 {data.buttonText2}
               </button>
@@ -60,7 +49,7 @@ export default function HeroSection({ data }: HeroSectionProps) {
 
         {/* Image Section */}
         <div className="flex-1 flex justify-center items-center mt-10 md:mt-0">
-          {data?.backgroundImage?.asset && (
+          {data.backgroundImage?.asset && (
             <div className="md:mt-10">
               <Image
                 src={urlFor(data.backgroundImage.asset).url() || ""}

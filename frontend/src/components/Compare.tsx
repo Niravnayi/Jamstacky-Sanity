@@ -7,23 +7,25 @@ import {
   SelectValue,
 } from "./ui/select";
 import { customComponents } from "./SerializerComponent";
+import { CompareData } from "@/sanity/lib/types/sectionsTypes/compare";
 
-export default function Compare(data: any) {
-  // console.log(data.data);
+
+
+export default function Compare(data: CompareData) {
 
   return (
     <div className="px-[10%] mt-10">
       <div className="bg-[#da3654] text-white p-10 rounded-t-2xl">
-        <h2 className="text-xl mb-5 ">{data.data.title}</h2>
+        <h2 className="text-xl mb-5 ">{data.title}</h2>
 
         <p className="text-lg leading-snug font-medium ">
-          {data.data.description}
+          {data.description}
         </p>
       </div>
 
       <div className="bg-[#f5f5f5]">
-        {data.data.content.map((item: any) => (
-          <div key={item.product} className="  p-10 ">
+        {data.content.map((item) => (
+          <div key={item.product[0]} className="  p-10 ">
             <p className="text-xl text-[#da3654] font-bold">{item.text}</p>
             <div className="flex max-[990px]:flex-col gap-5 items-center">
               <div className="flex-1">
@@ -38,10 +40,10 @@ export default function Compare(data: any) {
               <div className="flex-1 flex max-[990px]:flex-col gap-5 items-center">
                 <Select>
                   <SelectTrigger className="w-[180px] bg-white">
-                    <SelectValue placeholder="Butter CMS" />
+                    <SelectValue placeholder={item.product[0]} />
                   </SelectTrigger>
                   <SelectContent>
-                    {item.product.map((product: any, index: number) => (
+                    {item.product.map((product, index) => (
                       <SelectItem key={`${product}-${index}`} value={product}>
                         {product}
                       </SelectItem>
@@ -53,10 +55,10 @@ export default function Compare(data: any) {
 
                 <Select>
                   <SelectTrigger className="w-[180px] bg-white">
-                    <SelectValue placeholder="Agility CMS" />
+                    <SelectValue placeholder={item.product[1]} />
                   </SelectTrigger>
                   <SelectContent>
-                    {item.product.map((product: any, index: number) => (
+                    {item.product.map((product, index) => (
                       <SelectItem key={`${product}-${index}`} value={product}>
                         {product}
                       </SelectItem>
@@ -75,3 +77,4 @@ export default function Compare(data: any) {
     </div>
   );
 }
+

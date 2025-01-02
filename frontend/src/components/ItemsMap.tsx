@@ -20,7 +20,7 @@ interface SectionData {
 export default async function ItemMap({ data }: { data: SectionData }) {
   const Data = await client.fetch(SECTION_QUERY);
 
-  console.log("Fetched sections:", Data?.sections);
+  // console.log("Fetched sections:", Data?.sections);
 
   return (
     <div>
@@ -33,7 +33,7 @@ export default async function ItemMap({ data }: { data: SectionData }) {
           case "techSection":
             return <TechSection key={`${sectionIndex}`} data={sectionItem} />;
           case "compare":
-            return <Compare key={`${sectionIndex}`} data={sectionItem} />;
+            return <Compare key={`${sectionIndex}`} {...sectionItem} />;
           case "edgeSection":
             return <EdgeSection key={`${sectionIndex}`} data={sectionItem} />;
           case "carousel":

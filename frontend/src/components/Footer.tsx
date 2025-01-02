@@ -1,29 +1,16 @@
 import client from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/imageUrlBuilder";
 import { FOOTER_QUERY } from "@/sanity/lib/queries";
-import { NavigationItem } from "@/sanity/lib/types/NavigationItems";
+import { FooterData } from "@/sanity/lib/types/footer";
 import Image from "next/image";
 import Link from "next/link";
 
-interface FooterData {
-  image: {
-    asset: any;
-  };
-  label: string;
-  navigationItems: NavigationItem[];
-  email: string;
-  text: string;
-}
-
-interface FooterProps {
-  footerData: FooterData[];
-}
-
 export default async function Footer() {
-  const footerData = await client.fetch(FOOTER_QUERY);
+  const footerData: FooterData[] =
+    await client.fetch<FooterData[]>(FOOTER_QUERY);
   return (
     <>
-      {footerData.map((footer: FooterData, index: number) => (
+      {footerData.map((footer, index) => (
         <div
           key={index}
           className="bg-[#222549] flex justify-between items-center px-[10%] gap-5 py-6"
@@ -37,9 +24,9 @@ export default async function Footer() {
               alt={footer?.label}
             />
           </div>
-          <div className="max-[990px]:hidden">
+          <div className="hidden md:flex">
             <ul className="flex items-center gap-3">
-              {footer?.navigationItems.map((item: NavigationItem) => (
+              {footer?.navigationItems.map((item) => (
                 <li key={item.label}>
                   <a
                     href={item.link}
