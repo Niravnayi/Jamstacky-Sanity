@@ -10,9 +10,14 @@ export default defineType({
       type: 'object',
       fields: [
         defineField({
-          name: 'Field',
+          name: 'title',
+          title: 'Title',
           type: 'string',
-          title: 'Field',
+        }),
+        defineField({
+          name: 'subtitle',
+          title: 'Subtitle',
+          type: 'string',
         }),
         defineField({
           name: 'techs',

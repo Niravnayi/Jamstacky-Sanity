@@ -1,15 +1,17 @@
 import { urlFor } from "@/sanity/lib/imageUrlBuilder";
 import Image from "next/image";
 
-export default  function TechSection(data: any) {
+export default function TechSection(data: any) {
   return (
     <div className="bg-blue-50 py-12 px-[10%]">
       {/* Section Title */}
       <div className=" mb-8">
-        <h3 className="text-blue-600 font-semibold tracking-wide uppercase">
-          Technology We Work With
+        <h3 className="text-blue-600 ml-10 tracking-wide uppercase">
+          {data.data.title.title}
         </h3>
-        <h2 className="text-xl font-bold">Your Choice of App Stack</h2>
+        <h2 className="text-3xl mt-3 font-medium ">
+          {data.data.title.subtitle}
+        </h2>
       </div>
 
       {/* Technology Grid */}

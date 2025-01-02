@@ -5,6 +5,7 @@ import "../app/globals.css";
 
 interface HeroSectionProps {
   data: {
+    image: any;
     text: string;
     heading?: string;
     subheading?: string;
@@ -78,7 +79,7 @@ export default function HeroSection({ data }: HeroSectionProps) {
 
         <div className="absolute top-[200px]  transform translate-x-1/2 -translate-y-1/2">
           <Image
-            src={circle}
+            src={urlFor(data.image.asset).url() || ""}
             alt="Logo"
             width={100}
             height={100}
