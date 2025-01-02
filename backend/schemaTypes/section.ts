@@ -20,6 +20,8 @@ export default {
         {type: 'compare'},
         {type: 'carousel'},
         {type: 'blog'},
+        {type: 'multicarousel'},
+        {type: 'contact'},
       ],
     },
   ],

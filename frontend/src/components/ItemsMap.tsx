@@ -7,6 +7,8 @@ import EdgeSection from "./EdgeSection";
 import Compare from "./Compare";
 import Carousel from "./corousel";
 import Blog from "./Blog";
+import Multicarousel from "./Multicarousel";
+import Contact from "./Contact";
 
 interface SectionData {
   sections: Array<{
@@ -35,9 +37,13 @@ export default async function ItemMap({ data }: { data: SectionData }) {
           case "edgeSection":
             return <EdgeSection key={`${sectionIndex}`} data={sectionItem} />;
           case "carousel":
-              return <Carousel key={`${sectionIndex}`} data={sectionItem} />; 
-              case "blog":
-                return <Blog key={`${sectionIndex}`} data={sectionItem} />;  
+            return <Carousel key={`${sectionIndex}`} data={sectionItem} />;
+          case "blog":
+            return <Blog key={`${sectionIndex}`} data={sectionItem} />;
+          case "multicarousel":
+            return <Multicarousel key={`${sectionIndex}`} data={sectionItem} />;
+          case "contact":
+            return <Contact key={`${sectionIndex}`} data={sectionItem} />;
           default:
             console.warn(`Unknown section type: ${sectionItem._type}`);
             return null;

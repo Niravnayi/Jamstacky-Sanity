@@ -3,7 +3,7 @@ import Image from "next/image";
 import { customComponents } from "./SerializerComponent";
 import { PortableText } from "next-sanity";
 
-export default async function CaseStudy(data: any) {
+export default  function CaseStudy(data: any) {
   const metrics = [
     { name: "First contentful paint", value: 80 },
     { name: "Cumulative layout shift score", value: 70 },

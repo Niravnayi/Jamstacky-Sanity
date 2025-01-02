@@ -2,7 +2,7 @@ import { urlFor } from "@/sanity/lib/imageUrlBuilder";
 import Image from "next/image";
 import "../app/globals.css";
 
-export default async function EdgeSection(data: any) {
+export default  function EdgeSection(data: any) {
   // console.log("EdgeSection", data.data);
 
   return (
