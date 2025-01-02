@@ -25,7 +25,7 @@ export default function Compare(data: any) {
         {data.data.content.map((item: any) => (
           <div key={item.product} className="  p-10 ">
             <p className="text-xl text-[#da3654] font-bold">{item.text}</p>
-            <div className="flex gap-5 items-center">
+            <div className="flex max-[990px]:flex-col gap-5 items-center">
               <div className="flex-1">
                 <div className="mt-10 w-3/4">
                   <PortableText
@@ -35,7 +35,7 @@ export default function Compare(data: any) {
                 </div>
               </div>
 
-              <div className="flex-1 flex gap-5 items-center">
+              <div className="flex-1 flex max-[990px]:flex-col gap-5 items-center">
                 <Select>
                   <SelectTrigger className="w-[180px] bg-white">
                     <SelectValue placeholder="Butter CMS" />

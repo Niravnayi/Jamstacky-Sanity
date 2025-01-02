@@ -1,4 +1,5 @@
 import blockContent from './blockContent'
+import footer from './footer'
 import header from './header'
 import page from './page'
 import section from './section'
@@ -14,6 +15,7 @@ import techSection from './sections/techSection'
 
 export const schemaTypes = [
   header,
+  footer,
   blockContent,
   page,
   section,

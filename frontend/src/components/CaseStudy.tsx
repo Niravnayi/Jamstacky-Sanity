@@ -3,7 +3,7 @@ import Image from "next/image";
 import { customComponents } from "./SerializerComponent";
 import { PortableText } from "next-sanity";
 
-export default  function CaseStudy(data: any) {
+export default function CaseStudy(data: any) {
   const metrics = [
     { name: "First contentful paint", value: 80 },
     { name: "Cumulative layout shift score", value: 70 },
@@ -21,8 +21,8 @@ export default  function CaseStudy(data: any) {
         </h2>
         <p className="text-2xl font-normal">{data.data.description}</p>
       </div>
-      <div className="flex justify-center items-center">
-        <div className="flex-1">
+      <div className="flex max-[990px]:flex-col flex-wrap justify-center items-center">
+        <div className="flex-1 w-full">
           <div className="flex flex-col justify-center items-center">
             <Image
               src={urlFor(data.data.image?.asset).url() || ""}
@@ -32,7 +32,7 @@ export default  function CaseStudy(data: any) {
             />
           </div>
           <div>
-            <div className="space-y-4 max-w-3xl px-28">
+            <div className=" max-w-3xl ">
               {metrics.map((metric, index) => (
                 <div key={index} className="space-y-2">
                   <p className="text-sm font-medium text-gray-600">
