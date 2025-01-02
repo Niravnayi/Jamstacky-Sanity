@@ -27,7 +27,7 @@ export default function Compare(data: any) {
             <p className="text-xl text-[#da3654] font-bold">{item.text}</p>
             <div className="flex max-[990px]:flex-col gap-5 items-center">
               <div className="flex-1">
-                <div className="mt-10 w-3/4">
+                <div className="mt-10 w-3/4 max-[990px]:w-full">
                   <PortableText
                     value={item.details}
                     components={customComponents}

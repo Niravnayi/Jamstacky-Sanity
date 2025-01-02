@@ -22,8 +22,12 @@ export default function Corousel(data: any) {
   return (
     <div className="flex max-[990px]:flex-col gap-5 px-[10%] py-5 my-5 bg-gradient-to-t from-[#f9f9f9] to-[#f9f9f9]">
       <div className="flex-1 flex flex-col gap-5 p-10">
-        <h1 className="text-4xl font-semibold">{data.data.title}</h1>
-        <h1 className="text-lg t w-full max-w-xl">{data.data.description}</h1>
+        <h1 className="md:text-4xl text-3xl font-semibold w-full">
+          {data.data.title}
+        </h1>
+        <h1 className="text-lg t max-[990px]:w-full max-w-xl">
+          {data.data.description}
+        </h1>
       </div>
 
       <div className="flex-1">
@@ -31,17 +35,17 @@ export default function Corousel(data: any) {
           <div key={`${items._id}-${index}`}>
             <Carousel
               plugins={[plugin.current]}
-              className="w-full max-w-2xl "
+              className="max-[990px]:w-full max-w-2xl "
               onMouseEnter={plugin.current.stop}
               onMouseLeave={plugin.current.reset}
             >
               <CarouselContent>
                 {items.details.map((item: any, index: number) => (
                   <CarouselItem key={`${item._id}-${index}`}>
-                    <div className="p-10 wf-full">
+                    <div className="p-5 w-full">
                       <Card>
                         <CardContent>
-                          <span >
+                          <span>
                             <div className="mt-10 w-full">
                               <PortableText
                                 key={`${item._id}-${index}`}
@@ -60,7 +64,9 @@ export default function Corousel(data: any) {
                                 />
                               </div>
                               <div>
-                                <p className="text-lg font-semibold ">{item.auther}</p>
+                                <p className="text-lg font-semibold ">
+                                  {item.auther}
+                                </p>
                               </div>
                             </div>
                           </span>
@@ -70,15 +76,12 @@ export default function Corousel(data: any) {
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious />
-              <CarouselNext />
+              <CarouselPrevious className="max-[990px]:hidden" />
+              <CarouselNext className="max-[990px]:hidden" />
             </Carousel>
-
           </div>
         ))}
       </div>
     </div>
   );
 }
-
-

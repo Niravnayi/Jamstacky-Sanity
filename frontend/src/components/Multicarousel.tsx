@@ -7,7 +7,7 @@ export default function Multicarousel({ data }: any) {
   const infiniteItems = [...data.content, ...data.content];
 
   return (
-    <div className="relative overflow-hidden w-full  my-5">
+    <div className="relative overflow-hidden  my-5">
       <div
         className="flex animate-slide gap-4"
         style={{
@@ -21,7 +21,7 @@ export default function Multicarousel({ data }: any) {
               alt={`carousel-image-${index}`}
               width={300}
               height={200}
-              className="object-cover w-full "
+              className=" oberflow-hidden rounded-lg"
             />
           </div>
         ))}

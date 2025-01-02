@@ -28,7 +28,7 @@ export default function EdgeSection(data: any) {
               className="w-full custom-spin"
             />
           </div>
-          <div className="absolute top-28 sm:top-56 left-1/2 transform -translate-x-1/2">
+          <div className="absolute top-36  sm:top-56 left-1/2 transform -translate-x-1/2">
             <Image
               src={urlFor(data.data.image2?.asset).url() || ""}
               alt={data.data.heading}
@@ -40,7 +40,7 @@ export default function EdgeSection(data: any) {
         </div>
 
         {/* Text Section */}
-        <div className="flex-1 text-center sm:text-left">
+        <div className="flex-1 text-center sm:text-left w-full">
           <div>
             <p className="text-4xl sm:text-6xl leading-snug text-[#110462] font-medium my-5">
               {data.data.text1}
