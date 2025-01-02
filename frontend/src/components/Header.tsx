@@ -84,7 +84,7 @@ export default function Header({
 
       {/* Mobile Menu */}
       <div
-        className={`absolute right-0 top-0 w-4/5 h-screen bg-black text-white shadow-lg rounded-md transform transition-transform duration-300 ${
+        className={`absolute md:hidden  right-0 top-0 w-4/5 h-screen bg-black text-white shadow-lg rounded-md transform transition-transform duration-300 ${
           isMenuOpen ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
         }`}
       >
