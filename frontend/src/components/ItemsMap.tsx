@@ -59,7 +59,7 @@ export default function ItemMap({ data }: ItemMapProps) {
             return <TechSection key={sectionIndex} data={sectionItem} />;
           case "compare":
             return (
-              <Compare key={sectionIndex} data={sectionItem as CompareData} />
+              <Compare key={sectionIndex} data={sectionItem } />
             );
           case "edgeSection":
             return <EdgeSection key={sectionIndex} data={sectionItem} />;
