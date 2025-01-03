@@ -35,7 +35,7 @@ export default function Compare({ data }: { data: CompareData }) {
               <Select>
                   <SelectTrigger
                     className="w-[180px] bg-white"
-                    aria-label={`Select product: ${item.product[0]}`}
+                    aria-label={`Select ${item.product[0]}`}
                   >
                     <SelectValue placeholder={item.product[0]} />
                   </SelectTrigger>
@@ -53,7 +53,7 @@ export default function Compare({ data }: { data: CompareData }) {
                 <Select>
                   <SelectTrigger
                     className="w-[180px] bg-white"
-                    aria-label={`Select product: ${item.product[0]}`}
+                    aria-label={`Select ${item.product[0]}`}
                   >
                     <SelectValue placeholder={item.product[0]} />
                   </SelectTrigger>
