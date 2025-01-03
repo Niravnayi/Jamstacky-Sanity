@@ -1,12 +1,16 @@
-import HeroSection from "@/components/HeroSection";
-import CaseStudy from "@/components/CaseStudy";
-import EdgeSection from "./EdgeSection";
-import Compare from "./Compare";
-import Carousel from "./corousel";
-import Blog from "./Blog";
-import Multicarousel, { MulticarouselItem } from "./Multicarousel";
-import Contact from "./Contact";
+import dynamic from "next/dynamic";
+const HeroSection = dynamic(() => import("@/components/HeroSection"));
+const EdgeSection = dynamic(() => import("./EdgeSection"));
+const Compare = dynamic(() => import("./Compare"));
+const Carousel = dynamic(() => import("./corousel"));
+const CaseStudy = dynamic(() => import("./CaseStudy"));
+const Blog = dynamic(() => import("./Blog"));
+const Contact = dynamic(() => import("./Contact"));
+const Multicarousel = dynamic(() => import("./Multicarousel"));
+const TechSection = dynamic(() => import("./TechSection"));
+import { MulticarouselItem } from "./Multicarousel";
 import { SanityImageAssetDocument } from "next-sanity";
+
 import { CarouselData } from "@/sanity/lib/types/sectionsTypes/carousel";
 import { CompareData } from "@/sanity/lib/types/sectionsTypes/compare";
 import { HeroSectionData } from "@/sanity/lib/types/sectionsTypes/heroSection";
@@ -15,8 +19,7 @@ import { TechSectionData } from "@/sanity/lib/types/sectionsTypes/techSection";
 import { EdgeSectionData } from "@/sanity/lib/types/sectionsTypes/edgeSection";
 import { BlogData } from "@/sanity/lib/types/sectionsTypes/blog";
 import { ContactData } from "@/sanity/lib/types/sectionsTypes/contact";
-import TechSection from "./TechSection";
-
+// const Tech = dynamic(() => import('./components/techStack'))
 
 type MulticarouselData = {
   _type: "multicarousel";
@@ -58,9 +61,7 @@ export default function ItemMap({ data }: ItemMapProps) {
           case "techSection":
             return <TechSection key={sectionIndex} data={sectionItem} />;
           case "compare":
-            return (
-              <Compare key={sectionIndex} data={sectionItem } />
-            );
+            return <Compare key={sectionIndex} data={sectionItem} />;
           case "edgeSection":
             return <EdgeSection key={sectionIndex} data={sectionItem} />;
           case "carousel":
