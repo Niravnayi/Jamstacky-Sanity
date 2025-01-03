@@ -1,4 +1,3 @@
-// types.ts
 
 import { SanityImageAssetDocument } from "next-sanity";
 
@@ -13,11 +12,17 @@ export interface ImageAsset {
       };
   }
   
-  export interface MulticarouselData {
+  
+  
+ 
+  
+
+ export  type MulticarouselDatas = {
+    _type: "multicarousel";
+    items: string[];
     content: MulticarouselItem[];
-  }
   
-  export interface MulticarouselProps {
-    data: MulticarouselData;
-  }
-  
+    image: {
+      asset: SanityImageAssetDocument;
+    };
+  };

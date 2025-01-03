@@ -2,20 +2,12 @@ import { urlFor } from "@/sanity/lib/imageUrlBuilder";
 import { SanityImageAssetDocument } from "next-sanity";
 import Image from "next/image";
 
-interface Tech {
-  name: string;
-  image: { _key: string; asset: SanityImageAssetDocument }[];
-}
-
-interface Title {
-  title: string;
-  subtitle: string;
-  techs: Tech[];
-}
-
 interface TechSectionProps {
   data: {
-    title: Title;
+    title: string;
+  subtitle: string;
+  name: string;
+  image: { asset: SanityImageAssetDocument }[];
   };
 }
 
@@ -27,9 +19,7 @@ export default function TechSection({ data }: TechSectionProps) {
         <h3 className="text-blue-600 ml-10 tracking-wide uppercase">
           {data.title.title}
         </h3>
-        <h2 className="text-3xl mt-3 font-medium">
-          {data.title.subtitle}
-        </h2>
+        <h2 className="text-3xl mt-3 font-medium">{data.title.subtitle}</h2>
       </div>
 
       {/* Technology Grid */}
@@ -57,4 +47,3 @@ export default function TechSection({ data }: TechSectionProps) {
     </div>
   );
 }
-

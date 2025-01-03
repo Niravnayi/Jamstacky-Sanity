@@ -1,22 +1,10 @@
 import { urlFor } from "@/sanity/lib/imageUrlBuilder";
 import Image from "next/image";
 import { customComponents } from "./SerializerComponent";
-import {
-  PortableText,
-  PortableTextBlock,
-  SanityImageAssetDocument,
-} from "next-sanity";
+import { PortableText } from "next-sanity";
+import { CaseStudyData } from "@/sanity/lib/types/sectionsTypes/caseStudy";
 
-export default function CaseStudy({
-  data,
-}: {
-  data: {
-    title: string;
-    description: string;
-    image: { asset: SanityImageAssetDocument };
-    body: PortableTextBlock[];
-  };
-}) {
+export default function CaseStudy({ data }: { data: CaseStudyData }) {
   const metrics = [
     { name: "First contentful paint", value: 80 },
     { name: "Cumulative layout shift score", value: 70 },

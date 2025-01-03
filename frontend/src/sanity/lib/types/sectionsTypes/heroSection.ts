@@ -1,6 +1,9 @@
 import { SanityImageAssetDocument } from "next-sanity";
 
 export type HeroSectionData = {
+  _type: "heroSection";
+  title: string;
+  description: string;
   image: {
     asset: SanityImageAssetDocument;
   };
@@ -14,5 +17,3 @@ export type HeroSectionData = {
   };
   badgeText?: string;
 };
-
-

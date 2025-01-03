@@ -1,13 +1,14 @@
-import { PortableText, PortableTextBlock, SanityImageAssetDocument } from "next-sanity";
+import { PortableText, SanityImageAssetDocument } from "next-sanity";
 import { customComponents } from "./SerializerComponent";
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/imageUrlBuilder";
 import Link from "next/link";
+import { content } from "@/sanity/lib/types/sectionsTypes/compare";
 
 interface ContactProps {
   data: {
     title: string;
-    description: PortableTextBlock[]; // PortableText value type
+    description: content[]; // PortableText value type
     image: {
       asset: SanityImageAssetDocument; // Sanity image type
     };

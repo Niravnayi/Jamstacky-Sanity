@@ -9,23 +9,17 @@ import {
 import { customComponents } from "./SerializerComponent";
 import { CompareData } from "@/sanity/lib/types/sectionsTypes/compare";
 
-
-
-export default function Compare(data: CompareData) {
-
+export default function Compare({ data }: { data:CompareData }) {
   return (
     <div className="px-[10%] mt-10">
       <div className="bg-[#da3654] text-white p-10 rounded-t-2xl">
         <h2 className="text-xl mb-5 ">{data.title}</h2>
-
-        <p className="text-lg leading-snug font-medium ">
-          {data.description}
-        </p>
+        <p className="text-lg leading-snug font-medium ">{data.description}</p>
       </div>
 
       <div className="bg-[#f5f5f5]">
-        {data.content.map((item) => (
-          <div key={item.product[0]} className="  p-10 ">
+        {data.content.map((item, index) => (
+          <div key={index} className="p-10">
             <p className="text-xl text-[#da3654] font-bold">{item.text}</p>
             <div className="flex max-[990px]:flex-col gap-5 items-center">
               <div className="flex-1">
@@ -43,8 +37,8 @@ export default function Compare(data: CompareData) {
                     <SelectValue placeholder={item.product[0]} />
                   </SelectTrigger>
                   <SelectContent>
-                    {item.product.map((product, index) => (
-                      <SelectItem key={`${product}-${index}`} value={product}>
+                    {item.product.map((product, idx) => (
+                      <SelectItem key={`${product}-${idx}`} value={product}>
                         {product}
                       </SelectItem>
                     ))}
@@ -58,8 +52,8 @@ export default function Compare(data: CompareData) {
                     <SelectValue placeholder={item.product[1]} />
                   </SelectTrigger>
                   <SelectContent>
-                    {item.product.map((product, index) => (
-                      <SelectItem key={`${product}-${index}`} value={product}>
+                    {item.product.map((product, idx) => (
+                      <SelectItem key={`${product}-${idx}`} value={product}>
                         {product}
                       </SelectItem>
                     ))}
@@ -77,4 +71,3 @@ export default function Compare(data: CompareData) {
     </div>
   );
 }
-
