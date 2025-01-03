@@ -57,7 +57,7 @@ export default function HeroSection({ data }: HeroSectionProps) {
                 width={500}
                 height={500}
                 sizes="(max-width: 768px) 300px, (max-width: 1024px) 400px, 500px"
-                loading="lazy"
+                priority
                 className="rounded-lg md:w-[400px] md:h-[400px] w-[300px] h-[300px] object-cover"
               />
             </div>
