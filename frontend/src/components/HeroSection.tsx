@@ -84,7 +84,7 @@ export default function HeroSection({ data }: HeroSectionProps) {
       {/* Text */}
       <div className="flex justify-center w-full mt-20">
         <p
-          className="text-base sm:text-lg text-gray-600  max-w-3xl text-center px-4"
+          className=" sm:text-lg text-gray-600 md:max-w-3xl  text-center px-4"
           style={{ fontSize: "16px", lineHeight: "1.5", fontWeight: "400" }}
         >
           {data.text}
