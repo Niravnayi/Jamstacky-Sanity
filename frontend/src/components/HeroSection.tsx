@@ -59,7 +59,7 @@ export default function HeroSection({ data }: HeroSectionProps) {
               priority
               placeholder="blur"
               blurDataURL="/path/to/placeholder.jpg"
-              className="rounded-lg md:w-[400px] md:h-[400px] w-[300px] h-[300px] object-cover"
+              className="rounded-lg md:w-[400px] md:h-[400px] w-[300px] h-[300px] object-cover max-md:hidden"
             />
           )}
         </div>
