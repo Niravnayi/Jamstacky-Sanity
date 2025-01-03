@@ -32,8 +32,11 @@ export default function Compare({ data }: { data: CompareData }) {
               </div>
 
               <div className="flex-1 flex max-[990px]:flex-col gap-5 items-center">
-                <Select>
-                  <SelectTrigger className="w-[180px] bg-white">
+              <Select>
+                  <SelectTrigger
+                    className="w-[180px] bg-white"
+                    aria-label={`Select product: ${item.product[0]}`}
+                  >
                     <SelectValue placeholder={item.product[0]} />
                   </SelectTrigger>
                   <SelectContent>
