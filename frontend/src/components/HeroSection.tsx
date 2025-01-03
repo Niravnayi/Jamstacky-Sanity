@@ -52,7 +52,7 @@ export default function HeroSection({ data }: HeroSectionProps) {
           {data.backgroundImage?.asset && (
             <div className="md:mt-10">
               <Image
-                src={urlFor(data.backgroundImage.asset).url() || ""}
+                src={urlFor(data.backgroundImage.asset)?.url() || ""}
                 alt={data.heading || "Hero Section Image"}
                 width={500}
                 height={500}
@@ -72,7 +72,6 @@ export default function HeroSection({ data }: HeroSectionProps) {
             width={100}
             height={100}
             sizes="100px"
-            loading="lazy"
             className="h-36 w-36 custom-spin"
           />
 
