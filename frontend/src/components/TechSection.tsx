@@ -32,7 +32,7 @@ export default function TechSection({ data }: TechSectionProps) {
 
       {/* Technology Grid */}
       <div>
-        {data.title.techs.map((tech) => (
+        {data?.title?.techs?.map((tech) => (
           <div key={tech.name} className="p-5 rounded-lg text-center">
             <h2 className="font-semibold text-lg m-5 text-blue-800 mb-20">
               {tech.name}

@@ -28,7 +28,7 @@ type MulticarouselData = {
   };
 };
 
-type SectionData =
+export type SectionData =
   | HeroSectionData
   | CaseStudyData
   | TechSectionData
@@ -47,8 +47,6 @@ export type ItemMapProps = {
 };
 
 export default function ItemMap({ data }: ItemMapProps) {
-  console.log(data, "avcvcvc");
-  
   return (
     <div>
       {data?.sections?.map((sectionItem, sectionIndex) => {
