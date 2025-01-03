@@ -82,8 +82,8 @@ export default function HeroSection({ data }: HeroSectionProps) {
       </div>
 
       {/* Text */}
-      <div className="mt-10 w-full text-center">
-        <p className="text-base sm:text-lg text-gray-600 mt-10 max-w-3xl text-center px-4">
+      <div >
+        <p className="text-base sm:text-lg text-gray-600 mt-10  text-center px-4">
           {data.text}
         </p>
       </div>
