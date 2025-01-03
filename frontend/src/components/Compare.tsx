@@ -9,7 +9,7 @@ import {
 import { customComponents } from "./SerializerComponent";
 import { CompareData } from "@/sanity/lib/types/sectionsTypes/compare";
 
-export default function Compare({ data }: { data:CompareData }) {
+export default function Compare({ data }: { data: CompareData }) {
   return (
     <div className="px-[10%] mt-10">
       <div className="bg-[#da3654] text-white p-10 rounded-t-2xl">
@@ -48,8 +48,11 @@ export default function Compare({ data }: { data:CompareData }) {
                 <p className="text-xl font-bold text-[#da3654]">VS</p>
 
                 <Select>
-                  <SelectTrigger className="w-[180px] bg-white">
-                    <SelectValue placeholder={item.product[1]} />
+                  <SelectTrigger
+                    className="w-[180px] bg-white"
+                    aria-label={`Select product: ${item.product[0]}`}
+                  >
+                    <SelectValue placeholder={item.product[0]} />
                   </SelectTrigger>
                   <SelectContent>
                     {item.product.map((product, idx) => (
@@ -60,8 +63,11 @@ export default function Compare({ data }: { data:CompareData }) {
                   </SelectContent>
                 </Select>
 
-                <button className="bg-[#222549] hover:bg-[#da3654] text-white px-5 py-2 rounded-lg duration-300 transition">
-                  {item.button}
+                <button
+                  className="bg-[#222549] hover:bg-[#da3654] text-white px-5 py-2 rounded-lg duration-300 transition"
+                  aria-label={item.button || "Compare button"}
+                >
+                  {item.button || "Compare"}
                 </button>
               </div>
             </div>
