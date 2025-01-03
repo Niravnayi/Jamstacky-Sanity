@@ -50,17 +50,17 @@ export default function HeroSection({ data }: HeroSectionProps) {
         {/* Image Section */}
         <div className="flex-1 flex justify-center items-center mt-10 md:mt-0">
           {data.backgroundImage?.asset && (
-            <div className="md:mt-10">
-              <Image
-                src={urlFor(data.backgroundImage.asset)?.url() || ""}
-                alt={data.heading || "Hero Section Image"}
-                width={500}
-                height={500}
-                sizes="(max-width: 768px) 300px, (max-width: 1024px) 400px, 500px"
-                priority
-                className="rounded-lg md:w-[400px] md:h-[400px] w-[300px] h-[300px] object-cover"
-              />
-            </div>
+            <Image
+              src={urlFor(data.backgroundImage.asset)?.url() || ""}
+              alt={data.heading || "Hero Section Image"}
+              width={500}
+              height={500}
+              sizes="(max-width: 768px) 300px, (max-width: 1024px) 400px, 500px"
+              priority
+              placeholder="blur"
+              blurDataURL="/path/to/placeholder.jpg"
+              className="rounded-lg md:w-[400px] md:h-[400px] w-[300px] h-[300px] object-cover"
+            />
           )}
         </div>
 
