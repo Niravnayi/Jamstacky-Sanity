@@ -1,10 +1,11 @@
 // types.ts
 
 import { SanityImageAssetDocument } from "next-sanity";
+import { content } from "./compare";
 
 export interface CarouselItemData {
   _id: string;
-  text: string;
+  text: content[];
   image: {
     asset?: SanityImageAssetDocument;
   };

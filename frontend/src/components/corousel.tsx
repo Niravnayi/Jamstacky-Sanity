@@ -18,9 +18,8 @@ import {
   CorouselProps,
 } from "@/sanity/lib/types/sectionsTypes/carousel";
 
-// Importing the types
-
 export default function Corousel({ data }: CorouselProps) {
+  console.log(data);
   const plugin = React.useRef(
     Autoplay({ delay: 2000, stopOnInteraction: true })
   );
@@ -60,15 +59,19 @@ export default function Corousel({ data }: CorouselProps) {
                                 <div className="mt-10 w-full">
                                   <PortableText
                                     key={`${item._id}-${index}`}
-                                    value={[{ _type: "block", children: [{ _type: "span", text: item.text }] }]}
+                                    value={item.text}
                                     components={customComponents}
                                   />
                                 </div>
                                 <div className="flex gap-5 items-center mt-20">
                                   <div className="rounded-full">
                                     <Image
-                                      src={item.image?.asset ? urlFor(item.image.asset).url() : ""}
-                                      alt={item.text}
+                                      src={
+                                        item.image?.asset
+                                          ? urlFor(item.image.asset).url()
+                                          : ""
+                                      }
+                                      alt="Picture of the author"
                                       width={400}
                                       height={400}
                                       className="h-10 w-auto rounded-full"
