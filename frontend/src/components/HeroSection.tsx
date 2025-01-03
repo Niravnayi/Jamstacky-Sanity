@@ -53,12 +53,12 @@ export default function HeroSection({ data }: HeroSectionProps) {
             <Image
               src={urlFor(data.backgroundImage.asset)?.url() || ""}
               alt={data.heading || "Hero Section Image"}
-              width={500} // Default size for desktop
-              height={500} // Default size for desktop
+              width={500}
+              height={500}
               sizes="(max-width: 768px) 300px, (max-width: 1024px) 400px, 500px"
-              priority // Ensures this image loads first
-              placeholder="blur" // Provides a placeholder while the image loads
-              blurDataURL="/path/to/placeholder.jpg" // Low-quality image for placeholder
+              priority
+              placeholder="blur"
+              blurDataURL="/path/to/placeholder.jpg"
               className="rounded-lg md:w-[400px] md:h-[400px] w-[300px] h-[300px] object-cover"
             />
           )}
