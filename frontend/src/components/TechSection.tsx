@@ -45,6 +45,7 @@ export default function TechSection({ data }: TechSectionProps) {
                   alt={tech.name}
                   width={100}
                   height={100}
+                  loading="lazy"
                   className="border-2 border-dashed border-red-400 w-full h-32 hover:-translate-y-3 duration-300 transition"
                 />
               ))}

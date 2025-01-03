@@ -56,6 +56,8 @@ export default function HeroSection({ data }: HeroSectionProps) {
                 alt={data.heading || "Hero Section Image"}
                 width={500}
                 height={500}
+                sizes="(max-width: 768px) 300px, (max-width: 1024px) 400px, 500px"
+                loading="lazy"
                 className="rounded-lg md:w-[400px] md:h-[400px] w-[300px] h-[300px] object-cover"
               />
             </div>
@@ -69,8 +71,11 @@ export default function HeroSection({ data }: HeroSectionProps) {
             alt="Logo"
             width={100}
             height={100}
+            sizes="100px"
+            loading="lazy"
             className="h-36 w-36 custom-spin"
           />
+
           <div className="absolute top-[70px] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-2xl font-bold">
             🛬
           </div>

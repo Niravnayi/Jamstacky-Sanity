@@ -23,6 +23,7 @@ export default async function Blog(data: Blog) {
               alt={item.title}
               width={500}
               height={300}
+              loading="lazy"
               className=" h-64 w-full object-cover   "
             />
             <div className="flex gap-2 m-3 ">

@@ -34,6 +34,7 @@ export default function Multicarousel({ data }: MulticarouselProps) {
               alt={`carousel-image-${index}`}
               width={300}
               height={200}
+              loading="lazy"
               className="overflow-hidden rounded-lg"
             />
           </div>
