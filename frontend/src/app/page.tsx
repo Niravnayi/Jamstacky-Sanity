@@ -31,7 +31,7 @@ export default async function Home() {
 
   return (
     <div className="w-full">
-      {data?.sections?.map((section, index: number) => {
+      {data?.sections?.map((section: any, index) => {
         return <ItemMap key={index} data={section} />;
       })}
     </div>

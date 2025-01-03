@@ -15,6 +15,7 @@ import { TechSectionData } from "@/sanity/lib/types/sectionsTypes/techSection";
 import { EdgeSectionData } from "@/sanity/lib/types/sectionsTypes/edgeSection";
 import { BlogData } from "@/sanity/lib/types/sectionsTypes/blog";
 import { ContactData } from "@/sanity/lib/types/sectionsTypes/contact";
+import TechSection from "./TechSection";
 
 
 type MulticarouselData = {
@@ -40,9 +41,9 @@ type SectionData =
 
 // Define the type for the props passed into the component
 export type ItemMapProps = {
-    data :{
-      sections: SectionData[];
-    }
+  data: {
+    sections: SectionData[];
+  };
 };
 
 export default function ItemMap({ data }: ItemMapProps) {
@@ -56,8 +57,8 @@ export default function ItemMap({ data }: ItemMapProps) {
             return <HeroSection key={sectionIndex} data={sectionItem} />;
           case "caseStudy":
             return <CaseStudy key={sectionIndex} data={sectionItem} />;
-          // case "techSection":
-          //   return <TechSection key={sectionIndex} data={sectionItem} />;
+          case "techSection":
+            return <TechSection key={sectionIndex} data={sectionItem} />;
           case "compare":
             return (
               <Compare key={sectionIndex} data={sectionItem as CompareData} />

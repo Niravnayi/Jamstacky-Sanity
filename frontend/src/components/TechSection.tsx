@@ -2,12 +2,20 @@ import { urlFor } from "@/sanity/lib/imageUrlBuilder";
 import { SanityImageAssetDocument } from "next-sanity";
 import Image from "next/image";
 
+interface Tech {
+  name: string;
+  image: { _key: string; asset: SanityImageAssetDocument }[];
+}
+
 interface TechSectionProps {
   data: {
-    title: string;
-  subtitle: string;
-  name: string;
-  image: { asset: SanityImageAssetDocument }[];
+    title: {
+      title: string;
+      subtitle: string;
+      techs: Tech[];
+      name: string;
+      image: { _key: string; asset: SanityImageAssetDocument }[];
+    };
   };
 }
 
