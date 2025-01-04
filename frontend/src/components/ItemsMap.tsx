@@ -62,7 +62,6 @@ export default function ItemMap({ data }: ItemMapProps) {
         return <Compare key={sectionIndex} data={sectionItem} />;
       case "edgeSection":
         return <EdgeSection key={sectionIndex} data={sectionItem} />;
-        5;
       case "carousel":
         return <Carousel key={sectionIndex} data={sectionItem} />;
       case "blog":
