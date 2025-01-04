@@ -11,13 +11,6 @@ export default function HeroSection({ data }: HeroSectionProps) {
     <div className="w-full bg-[#f4f3ec] px-4 sm:px-[10%] py-16 md:py-20">
       <div className="flex flex-col md:flex-row justify-center items-center relative">
         <div className="flex-1 flex flex-col justify-center items-start w-full md:w-fit">
-          {/* Badge */}
-          {data.badgeText && (
-            <div className="bg-blue-100 text-blue-600 px-4 py-1 rounded-full text-sm font-medium inline-flex items-center mb-4">
-              {data.badgeText}
-            </div>
-          )}
-
           {/* Heading */}
           {data.heading && (
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#110462] leading-snug">
@@ -80,7 +73,6 @@ export default function HeroSection({ data }: HeroSectionProps) {
           </div>
         </div>
       </div>
-
       {/* Text */}
       <div className="flex justify-center w-full mt-20">
         <p

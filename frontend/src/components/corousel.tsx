@@ -19,7 +19,6 @@ import {
 } from "@/sanity/lib/types/sectionsTypes/carousel";
 
 export default function Corousel({ data }: CorouselProps) {
-  console.log(data);
   const plugin = React.useRef(
     Autoplay({ delay: 2000, stopOnInteraction: true })
   );
