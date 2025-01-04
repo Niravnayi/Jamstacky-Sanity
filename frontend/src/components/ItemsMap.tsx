@@ -50,35 +50,32 @@ export type ItemMapProps = {
 };
 
 export default function ItemMap({ data }: ItemMapProps) {
-  return (
-    <div>
-      {data?.sections?.map((sectionItem, sectionIndex) => {
-        switch (sectionItem?._type) {
-          case "heroSection":
-            return <HeroSection key={sectionIndex} data={sectionItem} />;
-          case "caseStudy":
-            return <CaseStudy key={sectionIndex} data={sectionItem} />;
-          case "techSection":
-            return <TechSection key={sectionIndex} data={sectionItem} />;
-          case "compare":
-            return <Compare key={sectionIndex} data={sectionItem} />;
-          case "edgeSection":
-            return <EdgeSection key={sectionIndex} data={sectionItem} />;
-          case "carousel":
-            return <Carousel key={sectionIndex} data={sectionItem} />;
-          case "blog":
-            return <Blog key={sectionIndex} data={sectionItem} />;
-          case "multicarousel":
-            return <Multicarousel key={sectionIndex} data={sectionItem} />;
-          case "contact":
-            return <Contact key={sectionIndex} data={sectionItem} />;
-          default:
-            console.warn(
-              `Unknown section type: ${(sectionItem as SectionData)._type}`
-            );
-            return null;
-        }
-      })}
-    </div>
-  );
+  return data?.sections?.map((sectionItem, sectionIndex) => {
+    switch (sectionItem?._type) {
+      case "heroSection":
+        return <HeroSection key={sectionIndex} data={sectionItem} />;
+      case "caseStudy":
+        return <CaseStudy key={sectionIndex} data={sectionItem} />;
+      case "techSection":
+        return <TechSection key={sectionIndex} data={sectionItem} />;
+      case "compare":
+        return <Compare key={sectionIndex} data={sectionItem} />;
+      case "edgeSection":
+        return <EdgeSection key={sectionIndex} data={sectionItem} />;
+        5;
+      case "carousel":
+        return <Carousel key={sectionIndex} data={sectionItem} />;
+      case "blog":
+        return <Blog key={sectionIndex} data={sectionItem} />;
+      case "multicarousel":
+        return <Multicarousel key={sectionIndex} data={sectionItem} />;
+      case "contact":
+        return <Contact key={sectionIndex} data={sectionItem} />;
+      default:
+        console.warn(
+          `Unknown section type: ${(sectionItem as SectionData)._type}`
+        );
+        return null;
+    }
+  });
 }
