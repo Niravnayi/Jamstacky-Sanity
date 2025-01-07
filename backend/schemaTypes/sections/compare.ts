@@ -64,6 +64,28 @@ export default defineType({
                       title: 'Features',
                       type: 'blockContent',
                     }),
+                    defineField({
+                      name:'table',
+                      type:'array',
+                      title:'Table',
+                      of: [
+                        {
+                          type: 'object',
+                          fields: [
+                            defineField({
+                              name: 'name',
+                              title: 'Name',
+                              type: 'string',
+                            }),
+                            defineField({
+                              name: 'value',
+                              title: 'Value',
+                              type: 'string',
+                            }),
+                          ],
+                        },
+                      ]
+                    })
                   ],
                 },
               ],

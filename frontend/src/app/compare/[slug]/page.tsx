@@ -155,7 +155,7 @@ async function ComparisionPage({
                   className="w-full flex gap-8"
                 >
                   {/* Left Column */}
-                  <div className="w-1/2 pr-4">
+                  <div className="w-full pr-4">
                     {contentItem.filteredList
                       .slice(0, 1)
                       .map((product: any, productIndex: any) => (
@@ -177,7 +177,7 @@ async function ComparisionPage({
                   <div className="border-l-2 border-[#da3654]"></div>
 
                   {/* Right Column */}
-                  <div className="w-1/2 pl-4">
+                  <div className="w-full pl-4">
                     {contentItem.filteredList
                       .slice(1, 2)
                       .map((product: any, productIndex: any) => (
@@ -198,6 +198,66 @@ async function ComparisionPage({
               ))
             )}
           </div>
+        </div>
+      </div>
+
+      <div className="w-full mt-10  p-6">
+        <div className="max-w-5xl mx-auto bg-gradient-to-r from-[#141439] to-[#49123b] text-white">
+          <table className="w-full ">
+            {/* Table Header */}
+            <thead>
+              <tr className="bg-[#141439] text-white">
+                <th className="px-6 py-4 text-left">Framework</th>
+                <th className="px-6 py-4 text-center ">{firstSlug}</th>
+                <th className="px-6 py-4 text-center ">{secondSlug}</th>
+              </tr>
+            </thead>
+            {/* Table Body */}
+            <tbody className="bg-gradient-to-r from-[#141439] to-[#49123b] ">
+              {/* Collect all unique row names */}
+              {(() => {
+                const rowMap: Record<
+                  string,
+                  { firstValue?: string; secondValue?: string }
+                > = {};
+
+                // Populate the rowMap with data from filteredContent
+                filteredContent[0]?.content[0]?.filteredList.forEach(
+                  (product: any) => {
+                    product.table.forEach((row: any) => {
+                      const rowName = row.name;
+                      const slug = product.slug.current.toLowerCase();
+
+                      if (!rowMap[rowName]) {
+                        rowMap[rowName] = {};
+                      }
+
+                      if (slug === firstSlug) {
+                        rowMap[rowName].firstValue = row.value || "";
+                      } else if (slug === secondSlug) {
+                        rowMap[rowName].secondValue = row.value || "✔️";
+                      }
+                    });
+                  }
+                );
+
+                // Render table rows for each unique row name
+                return Object.entries(rowMap).map(
+                  ([rowName, values], index) => (
+                    <tr key={index}>
+                      <td className="px-6 py-4 ">{rowName}</td>
+                      <td className="px-6 py-4 text-center ">
+                        {values.firstValue || ""}
+                      </td>
+                      <td className="px-6 py-4 text-center">
+                        {values.secondValue || ""}
+                      </td>
+                    </tr>
+                  )
+                );
+              })()}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>

@@ -58,7 +58,9 @@ export const SECTION_QUERY = defineQuery(`
               name,
                content,
                 image,      
-                slug,    
+                slug,  
+                table[]{
+                name,value}  
    }}}
             }
         }
