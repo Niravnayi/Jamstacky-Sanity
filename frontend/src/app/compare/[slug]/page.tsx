@@ -96,22 +96,25 @@ async function ComparisionPage({
                   <div>
                     {contentItem.filteredList.map(
                       (product: any, productIndex: any) => (
-                        <div key={productIndex} className=" space-x-6 mb-8">
-                          <h3 className="text-xl font-semibold text-white bg-[#da3654] w-fit p-2 ml-20 mb-4">
+                        <div
+                          key={productIndex}
+                          className=" space-x-6 mb-8 p-10"
+                        >
+                          <h3 className="text-xl font-semibold text-white bg-[#da3654] w-fit p-2 ml-20 my-4">
                             {product.name}
                           </h3>
                           {/* Image and Description Side-by-Side */}
-                          <div className="w-full flex gap-5 justify-center mt-10">
+                          <div className="w-full flex gap-10 justify-center mt-10">
                             <Image
                               src={urlFor(product.images).url()}
                               alt={product.name}
-                              width={150}
-                              height={150}
+                              width={200}
+                              height={200}
                               className="rounded-lg object-contain"
                             />
 
                             <div className="w-2/3">
-                              <div className="text-sm text-gray-700 space-y-2">
+                              <div className="[&>p]:text-lg text-justify leading-3 flex flex-col gap-5">
                                 <PortableText
                                   value={product.description}
                                   components={customComponents}
@@ -143,26 +146,54 @@ async function ComparisionPage({
           </div>
         ))}
 
-        <div className="w-full flex  bg-[#f9f9fc] p-8 rounded-lg shadow-md border border-[#da3654]">
-          <div className="flex justify-between  gap-20">
+        <div className="w-full flex bg-[#f9f9fc] p-8 rounded-lg shadow-md border border-[#da3654]">
+          <div className="w-full flex justify-between gap-8">
             {filteredContent.map((section, index) =>
               section.content?.map((contentItem: any, contentIndex: any) => (
-                <div key={`${index}-${contentIndex}`} className="p-4 flex flex-1 gap-20 text-justify ">
-                  {contentItem.filteredList.map(
-                    (product: any, productIndex: any) => (
-                      <div key={productIndex}>
-                        <h3 className="text-xl font-bold text-[#da3654] mb-4">
-                          {product.name}
-                        </h3>
-                        <ul className="space-y-2 text-gray-700 list-disc pl-5">
-                          <PortableText
-                            value={product.features}
-                            components={customComponents}
-                          />
-                        </ul>
-                      </div>
-                    )
-                  )}
+                <div
+                  key={`${index}-${contentIndex}`}
+                  className="w-full flex gap-8"
+                >
+                  {/* Left Column */}
+                  <div className="w-1/2 pr-4">
+                    {contentItem.filteredList
+                      .slice(0, 1)
+                      .map((product: any, productIndex: any) => (
+                        <div key={productIndex}>
+                          <h3 className="text-xl font-bold text-[#da3654] mb-4">
+                            {product.name}
+                          </h3>
+                          <ul className="text-gray-700 list-disc pl-5 space-y-2 leading-8">
+                            <PortableText
+                              value={product.features}
+                              components={customComponents}
+                            />
+                          </ul>
+                        </div>
+                      ))}
+                  </div>
+
+                  {/* Divider Line */}
+                  <div className="border-l-2 border-[#da3654]"></div>
+
+                  {/* Right Column */}
+                  <div className="w-1/2 pl-4">
+                    {contentItem.filteredList
+                      .slice(1, 2)
+                      .map((product: any, productIndex: any) => (
+                        <div key={productIndex}>
+                          <h3 className="text-xl font-bold text-[#da3654] mb-4">
+                            {product.name}
+                          </h3>
+                          <ul className="text-gray-700 list-disc pl-5 space-y-2 leading-8">
+                            <PortableText
+                              value={product.features}
+                              components={customComponents}
+                            />
+                          </ul>
+                        </div>
+                      ))}
+                  </div>
                 </div>
               ))
             )}
