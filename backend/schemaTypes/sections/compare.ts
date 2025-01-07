@@ -27,7 +27,46 @@ export default defineType({
               name: 'product',
               title: 'Product',
               type: 'array',
-              of: [{type: 'string'}],
+              of: [
+                {
+                  type: 'object',
+                  name: 'productItem',
+                  fields: [
+                    defineField({
+                      name: 'name',
+                      title: 'Name',
+                      type: 'string',
+                    }),
+                    defineField({
+                      name: 'slug',
+                      title: 'Slug',
+                      type: 'slug',
+                      options: {
+                        source: (doc, options) => options.parent.name,
+                        maxLength: 96,
+                      },
+                    }),
+                    defineField({
+                      name: 'images',
+                      title: 'Images',
+                      type: 'image',
+                      options: {
+                        hotspot: true,
+                      },
+                    }),
+                    defineField({
+                      name: 'description',
+                      title: 'Description',
+                      type: 'blockContent',
+                    }),
+                    defineField({
+                      name: 'features',
+                      title: 'Features',
+                      type: 'blockContent',
+                    }),
+                  ],
+                },
+              ],
             }),
             defineField({
               name: 'text',
@@ -39,13 +78,11 @@ export default defineType({
               title: 'Details',
               type: 'blockContent',
             }),
-            defineField
-              ({
-                name: 'button',
-                title: 'button',
-                type: 'string',
-               
-              }),
+            defineField({
+              name: 'button',
+              title: 'Button',
+              type: 'string',
+            }),
           ],
         },
       ],

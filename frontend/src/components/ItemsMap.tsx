@@ -19,7 +19,6 @@ import { TechSectionData } from "@/sanity/lib/types/sectionsTypes/techSection";
 import { EdgeSectionData } from "@/sanity/lib/types/sectionsTypes/edgeSection";
 import { BlogData } from "@/sanity/lib/types/sectionsTypes/blog";
 import { ContactData } from "@/sanity/lib/types/sectionsTypes/contact";
-// const Tech = dynamic(() => import('./components/techStack'))
 
 type MulticarouselData = {
   _type: "multicarousel";
@@ -42,7 +41,6 @@ export type SectionData =
   | MulticarouselData
   | ContactData;
 
-// Define the type for the props passed into the component
 export type ItemMapProps = {
   data: {
     sections: SectionData[];

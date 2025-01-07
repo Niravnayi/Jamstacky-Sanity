@@ -22,7 +22,44 @@ export const FOOTER_QUERY = defineQuery(`*[_type == "footer"]{
         text
     }`);
 
-export const SECTION_QUERY = defineQuery(`*[_type == "page"][0]{
-        sections[]->{ ...}
-        
-    }`);
+export const SECTION_QUERY = defineQuery(`
+        *[_type == "page"][0] {
+          sections[]-> {
+            ...,
+            _type == "compare" => {
+              _type,
+              title,
+              description,
+              content[] {
+                product[] {
+                  productItem[]{
+                    name,
+                    slug,
+                    description,
+                    features,
+                    images,
+                  }
+                }
+              }
+            }
+          } 
+        }
+      `);
+
+      export const COMPARE_QUERY = defineQuery(`
+        *[_type == "page"][0]{
+          sections[]->{
+            ...,
+            sections[]{
+              ...,
+              content[]{
+              ...,
+              products[]{
+              name,
+               content,
+                image,      
+                slug,    
+   }}}
+            }
+        }
+     ` );

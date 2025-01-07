@@ -1,3 +1,5 @@
+import { SanityImageAssetDocument } from "next-sanity";
+
 export interface MarkDef {
   _key: string;
   _type: string;
@@ -18,13 +20,23 @@ export interface content {
 
 export type CompareData = {
   _type: "compare";
+
   comparisonItems: string[];
   title: string;
   description: string;
   content: {
-    product: string[];
+    // product: string[];
     details: content[];
     text: string;
     button: string;
+    product: {
+      name: string;
+      slug: string;
+      description: content;
+      features: content;
+      images: {
+        asset?: SanityImageAssetDocument;
+      };
+    }[];
   }[];
 };
